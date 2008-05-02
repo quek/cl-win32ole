@@ -1,0 +1,26 @@
+;; -*-mode: outline; coding: shift_jis-dos;-*-
+
+* 概要
+
+cl-win32ole は Common Lisp から Windows の OLE を使うためのライブラリです。
+Ruby の win32ole のようななものです。
+SBCL で動きます。
+
+* 必要なライブラリ
+
+cffi
+cl-ppcre
+
+* 動かし方
+
+example ディレクトリと test ディレクトリの下を見てください。
+
+* 参考資料
+
+Interface 研究室
+http://www.sol.dti.ne.jp/~yoshinor/ni/
+
+CPAN の Win32::OLE
+
+Ruby の Win32OLE
+

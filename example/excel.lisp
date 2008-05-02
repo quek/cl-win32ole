@@ -1,0 +1,28 @@
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (require :cl-win32ole)
+  (use-package :cl-win32ole))
+
+(defun excel-example1 ()
+  (let ((ex (create-object "Excel.Application")))
+    (with-slots (visible workbooks) ex
+      (setf visible t)
+      (let ((book (invoke workbooks :add)))
+        (let ((sheets (slot-value book 'worksheets)))
+          (p sheets (slot-value sheets 'count))
+          (let ((sheet (invoke sheets :item 1)))
+            (p sheet)
+            (setf (slot-value (invoke sheet :range "A1:C2") 'value)
+                  '(("Noth" "South" "Quis") (5.2 10 300)))
+            (let ((range (invoke sheet :range "A1:C2")))
+              (p range (slot-value range 'value)))
+            (let ((range (invoke sheet :range "A1:C1")))
+              (p range (slot-value range 'value)))
+               ))
+        (setf (slot-value book 'saved) t))
+        )
+    (invoke ex :quit)
+    ))
+
+;;(ole::make-variant '(("Noth" "South") (5 10)))
+
+(excel-example1)

@@ -1,0 +1,13 @@
+;;-*-mode: outline;-*-
+
+* VARIANT
+
+Before use, all VARIANTARGs must be initialized by VariantInit.
+
+** VariantClear
+
+If the vt field is VT_BSTR, the string is freed.
+
+If the vt field is VT_DISPATCH, the object is released.
+
+If the vt field has the VT_ARRAY bit set, the array is freed.
