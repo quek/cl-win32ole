@@ -1,5 +1,5 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (require :cl-win32ole)
+  (asdf:oos 'asdf:load-op :cl-win32ole)
   (use-package :cl-win32ole))
 
 (defun wsh-example ()
