@@ -5,11 +5,13 @@
 cl-win32ole は Common Lisp から Windows の OLE を使うためのライブラリです。
 Ruby の win32ole のようななものです。
 SBCL で動きます。
+Matthew D. Swank さんにより CLISP でも動くようになりました。
 
 * 必要なライブラリ
 
 cffi
 cl-ppcre
+trivial-garbage
 
 * 動かし方
 

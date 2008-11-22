@@ -2,7 +2,7 @@
 
 cl-win32ole is Windows OLE Library like Ruby's win32ole.
 
-cl-win32ole works with SBCL.
+cl-win32ole works with SBCL and CLISP(Thanks, Matthew D. Swank),
+and possibly any lisp supported by :cffi and :trivial-garbage.
 
-cl-win32ole requires cffi and cl-ppcre.
-
+cl-win32ole requires cffi, cl-ppcre and trivial-garbage.
