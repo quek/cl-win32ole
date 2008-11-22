@@ -19,4 +19,4 @@
                          (:file "ole-dispatch")
                          (:file "safearray")
                          )))
-  :depends-on (cffi cl-ppcre))
+  :depends-on (cffi cl-ppcre trivial-garbage))

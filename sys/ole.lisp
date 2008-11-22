@@ -35,7 +35,7 @@
         (loop for i from 0 below ret
            do (let ((c (code-char
                         (cffi:mem-aref buffer :unsigned-short i))))
-                (unless (member c '(#\CR #\LF))
+                (unless (member c '(#\Return #\Linefeed))
                   (write-char c))))))))
 
 

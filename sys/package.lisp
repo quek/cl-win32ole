@@ -135,5 +135,7 @@
            #:safe-array->variant-ptr-list
 
            #:p
+	   #:switch
+	   #:eswitch
            ))
 
