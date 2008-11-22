@@ -1,6 +1,6 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (require :cl-win32ole)
-  (require :fiveam))
+  (asdf:oos 'asdf:load-op :cl-win32ole)
+  (asdf:oos 'asdf:load-op :fiveam))
 
 (in-package :cl-win32ole)
 

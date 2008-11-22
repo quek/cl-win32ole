@@ -1,6 +1,6 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (require :cl-win32ole-sys)
-  (require :fiveam))
+  (asdf:oos 'asdf:load-op :cl-win32ole-sys)
+  (asdf:oos 'asdf:load-op :fiveam))
 
 (in-package :cl-win32ole-sys)
 
@@ -32,17 +32,17 @@
       (free-variant v)))
   )
 
-(5am:test type-lib
-  (let* ((dispatch (create-instance "WScript.Shell"))
-         (type-info (dispatch-get-type-info dispatch))
-         (type-lib (type-info-get-containing-type-lib type-info)))
-    (unwind-protect
-         (progn
-           )
-      (unknown-release type-lib)
-      (type-info-add-ref type-info)
-      (dispatch-add-ref dispatch)
-      )))
+;;(5am:test type-lib
+;;  (let* ((dispatch (create-instance "WScript.Shell"))
+;;         (type-info (dispatch-get-type-info dispatch))
+;;         (type-lib (type-info-get-containing-type-lib type-info)))
+;;    (unwind-protect
+;;         (progn
+;;           )
+;;      (unknown-release type-lib)
+;;      (type-info-add-ref type-info)
+;;      (dispatch-add-ref dispatch)
+;;      )))
 
 
 (5am:run! 'cl-win32ole-sys-test)
