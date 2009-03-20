@@ -101,8 +101,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; create object
-(defmethod create-object ((prog-id string))
-  (make-instance 'dispatch :ptr (create-instance prog-id)))
+(defmethod create-object ((prog-id string) &optional finalizer)
+  (make-instance 'dispatch :ptr (create-instance prog-id)
+                 :finalizer finalizer))
 
 (defmacro with-ole-object ((var prog-id) &body body)
   (let ((original-function (gensym)))

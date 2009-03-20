@@ -8,7 +8,8 @@
   ((ptr :initarg :ptr :accessor ptr)))
 
 (defclass unknown ()
-  ((ptr :initarg :ptr :accessor ptr)))
+  ((ptr :initarg :ptr :accessor ptr)
+   (finalizer :initarg :finalizer :initform nil)))
 
 (defclass dispatch (unknown)
   ())

@@ -1,3 +1,8 @@
+2009-03-20  Yoshinori Tahara  <read.eval.print@gmail.com>
+
+	* api/unknown.lisp (initialize-instance): finalizer slot value is
+	invoked in finalizer.
+
 2008-11-22  Yoshinori Tahara  <read.eval.print@gmail.com>
 
 	* Apply Matthew D. Swank's path. Thanks!
