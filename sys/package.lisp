@@ -134,6 +134,12 @@
            #:->safe-array
            #:safe-array->variant-ptr-list
 
+           #:SYSTEMTIME
+           #:UDATE
+           #:VarUdateFromDate
+           #:VarDateFromUdate
+           #:from-variant-date
+
            #:p
 	   #:switch
 	   #:eswitch

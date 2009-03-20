@@ -14,6 +14,8 @@
 
 (cffi:defctype HRESULT :long)
 
+(cffi:defctype DATE :double)
+
 (cffi:defcstruct GUID
   (Data1 :unsigned-long)
   (Data2 :unsigned-short)

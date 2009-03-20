@@ -18,11 +18,15 @@
                (VT_I4 v)
                (VT_R4 v)
                (VT_R8 v)
+               (VT_DATE (to-lisp-date ptr))
                (VT_BSTR (bstr->lisp v))
                (VT_BOOL (= VARIANT_TRUE v))
                (VT_DISPATCH (let ((dispatch (make-dispatch v)))
 			      (add-ref dispatch)
 			      dispatch)))))))
+
+(defun to-lisp-date (ptr)
+  (from-variant-date ptr))
 
 (defun map-dim (fn list)
   (if (consp (car list))

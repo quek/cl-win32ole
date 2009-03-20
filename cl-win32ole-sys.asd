@@ -18,5 +18,6 @@
                          (:file "ole")
                          (:file "ole-dispatch")
                          (:file "safearray")
+                         (:file "systemtime")
                          )))
   :depends-on (cffi cl-ppcre trivial-garbage))

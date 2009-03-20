@@ -68,6 +68,8 @@
   (int :int)
   (float :float)
   (double :double)
+  (date :double)
+  (pdate :pointer)
   (pointer :pointer))
 
 (cffi:defcstruct variant
@@ -102,6 +104,7 @@
              (VT_I4 'long)
              (VT_R4 'float)
              (VT_R8 'double)
+             (VT_DATE (if (variant-byref-p variant) 'pdate 'date))
              (VT_BSTR 'pointer)
              (VT_BOOL 'bool)
              (VT_VARIANT 'pointer)
