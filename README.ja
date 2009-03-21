@@ -12,6 +12,10 @@ Matthew D. Swank ‚³‚ñ‚É‚æ‚è CLISP ‚Å‚à“®‚­‚æ‚¤‚É‚È‚è‚Ü‚µ‚½B
 cffi
 cl-ppcre
 trivial-garbage
+simple-date-time
+
+simple-date-time ‚ÍŸ‚Ì‚æ‚¤‚É darcs ‚Åæ“¾‚µ‚Ä‚­‚¾‚³‚¢B
+darcs get http://li31-15.members.linode.com/darcs/simple-date-time
 
 * “®‚©‚µ•û
 
@@ -25,4 +29,3 @@ http://www.sol.dti.ne.jp/~yoshinor/ni/
 CPAN ‚Ì Win32::OLE
 
 Ruby ‚Ì Win32OLE
-

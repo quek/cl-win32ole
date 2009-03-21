@@ -5,4 +5,10 @@ cl-win32ole is Windows OLE Library like Ruby's win32ole.
 cl-win32ole works with SBCL and CLISP(Thanks, Matthew D. Swank),
 and possibly any lisp supported by :cffi and :trivial-garbage.
 
-cl-win32ole requires cffi, cl-ppcre and trivial-garbage.
+cl-win32ole requires cffi, cl-ppcre, trivial-garbage and simple-date-time.
+
+You can get simple-date-time from darcs repository.
+darcs get http://li31-15.members.linode.com/darcs/simple-date-time
+
+
+

@@ -61,6 +61,10 @@
          (psa (->safe-array ptr-list)))
     (make-variant psa (logior VT_VARIANT VT_ARRAY))))
 
+(defmethod make-variant ((lisp-value dt:date-time) &optional variant-type)
+  (declare (ignore variant-type))
+  (make-instance 'variant :ptr (to-variant-date lisp-value)))
+
 
 (defmethod print-object ((variant variant) stream)
   (print-unreadable-object (variant stream :type t :identity t)

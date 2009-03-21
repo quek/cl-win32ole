@@ -20,4 +20,4 @@
                          (:file "safearray")
                          (:file "systemtime")
                          )))
-  :depends-on (cffi cl-ppcre trivial-garbage))
+  :depends-on (cffi cl-ppcre trivial-garbage simple-date-time))

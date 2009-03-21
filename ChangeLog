@@ -1,3 +1,9 @@
+2009-03-21  Yoshinori Tahara  <read.eval.print@gmail.com>
+
+	* api/variant.lisp (make-variant): Add date type handling.
+	now depends on simple-date-time.
+	darcs get http://li31-15.members.linode.com/darcs/simple-date-time
+
 2009-03-20  Yoshinori Tahara  <read.eval.print@gmail.com>
 
 	* api/unknown.lisp (initialize-instance): finalizer slot value is
