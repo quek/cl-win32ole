@@ -7,7 +7,7 @@
 (defvar *co-initialized* nil)
 
 (unless *co-initialized*
-  (format t "co-initialize~%")
+  (dformat t "co-initialize~%")
   (succeeded (co-initialize (cffi-sys:null-pointer)))
   (setf *co-initialized* t))
 

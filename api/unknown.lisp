@@ -5,9 +5,9 @@
   (let ((ptr (ptr unknown))
         (finalizer (slot-value unknown 'finalizer))
         (class (class-name (class-of unknown))))
-    (format t "unknown::alloc ~a~%" ptr)
+    (dformat t "unknown::alloc ~a~%" ptr)
     (finalize unknown (lambda ()
-                        (format t "~a::realease ~a~%" class ptr)
+                        (dformat t "~a::realease ~a~%" class ptr)
                         (when finalizer
                           (free-variant
                            (apply #'dispatch-invoke ptr

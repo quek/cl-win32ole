@@ -6,6 +6,11 @@
                         `(format t "~30a ; => ~a~%" ',arg ,arg))
                     body)))
 
+(defmacro dformat (stream format &rest args)
+  (declare (ignorable stream format args))
+  ;;`(format ,stream ,format ,@args))
+  )
+
 (defmacro switch (keyform &body cases)
   "Switch is like case, except that it does not quote keys, and only accepts
 one key per case."

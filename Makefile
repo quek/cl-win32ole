@@ -1,2 +1,2 @@
 clean:
-	find ./ -name '*.fasl' -o -name '*~' | xargs rm
+	find ./ -name '*.fasl' -o -name '*~' -o -name '*.fas' -o -name '*.lib'| xargs rm

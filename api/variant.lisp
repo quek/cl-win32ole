@@ -68,5 +68,5 @@
 
 (defmethod print-object ((variant variant) stream)
   (print-unreadable-object (variant stream :type t :identity t)
-    (format stream "vt:~x ~a" (variant-type (ptr variant)) (to-lisp variant))))
+    (dformat stream "vt:~x ~a" (variant-type (ptr variant)) (to-lisp variant))))
 

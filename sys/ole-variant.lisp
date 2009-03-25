@@ -133,14 +133,14 @@
 
 (defun alloc-variant ()
   (let ((variant (cffi:foreign-alloc 'VARIANT)))
-    (format t "variant::alloc ~a~%" variant)
+    (dformat t "variant::alloc ~a~%" variant)
     (VariantInit variant)
     variant))
 
 (defun free-variant (variant)
-  (format t "variant::VariantClear ~a~%" variant)
+  (dformat t "variant::VariantClear ~a~%" variant)
   (succeeded (VariantClear variant))
-  (format t "variant::free ~a~%" variant)
+  (dformat t "variant::free ~a~%" variant)
   (cffi-sys:foreign-free variant))
 
 (defun variant-copy (dest src)

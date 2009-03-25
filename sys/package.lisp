@@ -141,8 +141,10 @@
            #:from-variant-date
            #:to-variant-date
 
-           #:p
 	   #:switch
 	   #:eswitch
+
+           #:p
+           #:dformat
            ))
 
