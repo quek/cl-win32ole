@@ -11,8 +11,10 @@
 (cffi:defctype ULONG :unsigned-long)
 
 (cffi:defctype PVOID :pointer "void*")
-
+(cffi:defctype SCODE :long)
 (cffi:defctype HRESULT :long)
+
+(cffi:defctype BSTR :pointer)
 
 (cffi:defctype DATE :double)
 
@@ -186,3 +188,14 @@
 (cffi:defcstruct SAFEARRAYBOUND
   (elements ULONG)
   (l-bound  LONG))
+
+(cffi:defcstruct EXCEPINFO
+  (wCode  WORD)
+  (wReserved  WORD)
+  (bstrSource  BSTR)
+  (bstrDescription  BSTR)
+  (bstrHelpFile  BSTR)
+  (dwHelpContext DWORD)
+  (pvReserved PVOID)
+  (pfnDeferredFillIn PVOID) ;HRESULT (__stdcall *pfnDeferredFillIn)(struct tagEXCEPINFO *)
+  (scode SCODE))

@@ -68,7 +68,9 @@
         (reversed-args (reverse args)))
     (cffi:with-foreign-objects
         ((params 'DISPPARAMS)
-         (v-args 'VARIANT argc))
+         (v-args 'VARIANT argc)
+         (excep-info 'EXCEPINFO)
+         (arg-err :unsigned-int))
       (loop for i from 0 below argc
          for v = (cffi:mem-aref v-args 'VARIANT i)
          do (progn
@@ -81,17 +83,21 @@
             (cffi:foreign-slot-value params 'DISPPARAMS 'cArgs)
             argc
             (cffi:foreign-slot-value params 'DISPPARAMS 'cNamedArgs)
-            0)
+            0
+            (cffi:mem-aref arg-err :unsigned-int) 0)
+      (dotimes (i (cffi:foreign-type-size 'EXCEPINFO))
+        (setf (cffi:mem-aref excep-info :unsigned-char i) 0))
       (let ((result (alloc-variant)))
-        (succeeded (%dispatch-invoke dispatch
-                                    disp-id
-                                    IID_NULL
-                                    *lcid*
-                                    (logior DISPATCH_METHOD DISPATCH_PROPERTYGET)
-                                    params
-                                    result
-                                    (cffi-sys:null-pointer)
-                                    (cffi-sys:null-pointer)))
+        (invoke-succeeded
+         (%dispatch-invoke dispatch
+                           disp-id
+                           IID_NULL
+                           *lcid*
+                           (logior DISPATCH_METHOD DISPATCH_PROPERTYGET)
+                           params
+                           result
+                           excep-info
+                           arg-err))
         (loop for i from 0 below argc
            for v = (cffi:mem-aref v-args 'VARIANT i)
            do (VariantClear v))

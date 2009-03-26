@@ -41,9 +41,10 @@
     (invoke cn :open *conn-str*)
     (unwind-protect
          (progn
+           (ole cn :execute "drop table table1")
            (invoke cn :execute
                    "create table table1 (
-                      str1 number(10) primary key,
+                      str1 integer primary key,
                       str varchar(10))")
            )
       (invoke cn :close))))

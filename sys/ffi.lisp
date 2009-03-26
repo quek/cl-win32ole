@@ -301,3 +301,39 @@
        (let ((dwMessageId (HRESULT->DWORD hresult)))
          (error "ERROR ~A(~X)~%~A~%"
                 (message-from-system dwMessageId) dwMessageId ',form)))))
+
+(defmacro invoke-succeeded (form)
+  `(let ((hresult ,form))
+     (when (< hresult #x00000000)
+       (unless (cffi-sys:null-pointer-p
+                (cffi:foreign-slot-value excep-info 'EXCEPINFO
+                                         'pfnDeferredFillIn))
+         (cffi:foreign-funcall-pointer
+          (cffi:foreign-slot-value excep-info 'EXCEPINFO 'pfnDeferredFillIn)
+          ()
+          :pointer excep-info
+          HRESULT))
+       (let ((source "")
+             (description "")
+             (bstr-source
+              (cffi:foreign-slot-value excep-info 'EXCEPINFO 'bstrSource))
+             (bstr-description
+              (cffi:foreign-slot-value excep-info 'EXCEPINFO
+                                       'bstrDescription))
+             (bstr-help-file
+              (cffi:foreign-slot-value excep-info 'EXCEPINFO 'bstrHelpFile))
+             (code (cffi:foreign-slot-value excep-info 'EXCEPINFO 'wCode))
+             (scode (cffi:foreign-slot-value excep-info 'EXCEPINFO 'scode)))
+         (unless (cffi-sys:null-pointer-p bstr-source)
+           (setf source (bstr->lisp bstr-source))
+           (SysFreeString bstr-source))
+         (unless (cffi-sys:null-pointer-p bstr-description)
+           (setf description (bstr->lisp bstr-description))
+           (SysFreeString bstr-description))
+         (unless (cffi-sys:null-pointer-p bstr-help-file)
+           (SysFreeString bstr-help-file))
+         (if (zerop code)
+             (error "ERROR code:~x ~a ~a."
+                    (HRESULT->DWORD scode) source description)
+             (error "ERROR code:~d ~a ~a."
+                    code source description))))))
