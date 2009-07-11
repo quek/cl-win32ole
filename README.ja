@@ -14,8 +14,9 @@ cl-ppcre
 trivial-garbage
 simple-date-time
 
-simple-date-time ‚ÍŸ‚Ì‚æ‚¤‚É darcs ‚Åæ“¾‚µ‚Ä‚­‚¾‚³‚¢B
-darcs get http://li31-15.members.linode.com/darcs/simple-date-time
+simple-date-time ‚Í github ‚É‚ ‚è‚Ü‚·B
+http://github.com/quek/simple-date-time/tree/master
+git clone git://github.com/quek/simple-date-time.git
 
 * “®‚©‚µ•û
 

@@ -7,8 +7,6 @@ and possibly any lisp supported by :cffi and :trivial-garbage.
 
 cl-win32ole requires cffi, cl-ppcre, trivial-garbage and simple-date-time.
 
-You can get simple-date-time from darcs repository.
-darcs get http://li31-15.members.linode.com/darcs/simple-date-time
-
-
-
+You can get simple-date-time from github.
+http://github.com/quek/simple-date-time/tree/master
+git clone git://github.com/quek/simple-date-time.git
