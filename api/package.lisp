@@ -10,4 +10,5 @@
            #:property
            #:invoke
            #:ole
-           #:with-ole-object))
+           #:with-ole-object
+	   #:empty-array))

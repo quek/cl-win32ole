@@ -23,9 +23,11 @@
         ))))
 
 (defun compute-elements-list (list)
-  (loop for each on list by #'car
-     unless (atom each)
-     collect (length each)))
+  (if (null list)
+      (list 0)
+      (loop for each on list by #'car
+	 unless (atom each)
+	 collect (length each))))
 
 (defun set-lisp-list-to-safe-array (list psa dim element-sizes indices)
   (labels ((elm-of-list ()

@@ -61,6 +61,13 @@
          (psa (->safe-array ptr-list)))
     (make-variant psa (logior VT_VARIANT VT_ARRAY))))
 
+(defmethod make-variant ((lisp-value (eql 'empty-array)) &optional variant-type)
+  (declare (ignore variant-type))
+  (make-variant (->safe-array nil) (logior VT_VARIANT VT_ARRAY)))
+
+(defun empty-array ()
+  'empty-array)
+
 (defmethod make-variant ((lisp-value dt:date-time) &optional variant-type)
   (declare (ignore variant-type))
   (make-instance 'variant :ptr (to-variant-date lisp-value)))

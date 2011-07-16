@@ -7,7 +7,7 @@
           (setf (car acc) (reverse (car acc))))
         (reverse acc))
       (progn
-        (if (symbolp (car args))
+        (if (keywordp (car args))
             (progn
               (when (consp (car acc))
                 (setf (car acc) (reverse (car acc))))

@@ -1,3 +1,8 @@
+2011-07-16  Yoshinori Tahara  <read.eval.print@gmail.com>
+
+	* api/variant.lisp (empty-array): Add a function empty-array for
+	empty list like Dim aNoArgs().
+
 2009-03-21  Yoshinori Tahara  <read.eval.print@gmail.com>
 
 	* api/variant.lisp (make-variant): Add date type handling.
